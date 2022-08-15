@@ -6,6 +6,7 @@ import Foundation
 
 class EditViewModel{
     var controller: BaseViewController!
+    var editContact: Contacts?
     
     func apiEditPost(post: Contacts){
         controller?.showProgress()

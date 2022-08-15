@@ -59,7 +59,7 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
         let vc = EditViewController(nibName: "EditViewController", bundle: nil)
         let navigationController = UINavigationController(rootViewController: vc)
         self.present(navigationController, animated: true, completion: nil)
-        vc.editContact = post
+        vc.viewModel.editContact = post
     }
     
     // MARK: -- Actions
