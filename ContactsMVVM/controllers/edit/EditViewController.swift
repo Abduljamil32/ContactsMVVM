@@ -29,8 +29,12 @@ class EditViewController: UIViewController {
 
     
     @IBAction func editTapped(_ sender: Any) {
-        viewModel.apiEditPost(post: Contacts(id: (viewModel.editContact?.id!)!,name: newNameTex.text!, phone: newPhoneText.text!))
-        self.navigationController?.dismiss(animated: true)
+        viewModel.apiEditPost(post: Contacts(id: (viewModel.editContact?.id!)!,name: newNameTex.text!, phone: newPhoneText.text!), handler: {isEdited in
+            if isEdited{
+                self.navigationController?.dismiss(animated: true)
+            }
+        })
+        
     }
     
 }

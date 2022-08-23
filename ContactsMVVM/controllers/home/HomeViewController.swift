@@ -113,7 +113,11 @@ class HomeViewController: BaseViewController, UITableViewDelegate, UITableViewDa
             print("Delete Here")
             
             completion(true)
-            self.viewModel.apiPostDelete(post: post)
+            self.viewModel.apiPostDelete(post: post, handler: {isDeleted in
+                if isDeleted{
+                    self.viewModel.apiPostList()
+                }
+            })
         }
     }
     

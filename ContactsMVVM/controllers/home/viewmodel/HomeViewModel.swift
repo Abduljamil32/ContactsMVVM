@@ -24,16 +24,19 @@ class HomeViewModel{
         })
     }
     
-    func apiPostDelete(post: Contacts){
+    func apiPostDelete(post: Contacts, handler: @escaping (Bool)-> Void){
         controller?.showProgress()
         
         AFHttp.del(url: AFHttp.API_POST_DELETE + post.id!, params: AFHttp.paramsEmpty(), handler: { [self] response in
             self.controller?.hideProgress()
             switch response.result{
             case .success:
+                handler(true)
                 print(response.result)
                 self.apiPostList()
+                
             case let .failure(error):
+                handler(false)
                 print(error)
                
             }

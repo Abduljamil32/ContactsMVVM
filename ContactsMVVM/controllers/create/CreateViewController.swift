@@ -26,8 +26,12 @@ class CreateViewController: UIViewController {
 
     
     @IBAction func createTapped(_ sender: Any) {
-        viewModel.apiCreatePost(post: Contacts(name: nameText.text!, phone: phoneText.text!))
-        self.navigationController?.popToRootViewController(animated: true)
+        viewModel.apiCreatePost(post: Contacts(name: nameText.text!, phone: phoneText.text!), handler: {isCreated in
+            if isCreated{
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        })
+       
     }
     
 }
